@@ -27,4 +27,4 @@
             
             - name: Build and run tests
                 run: |
-                    mvn -Dtest+teste test
+                    mvn -Dtest=teste test
