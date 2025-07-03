@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class test {
+public class teste {
 
     // Define um método de teste
     @Test
