@@ -5,6 +5,8 @@
     push:
       branches:
         - master
+      pull_request:
+
   jobs:
     run-tests:
       runs-on: ubuntu-latest
