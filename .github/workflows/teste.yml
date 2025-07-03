@@ -1,30 +1,29 @@
-  name: Roda todos os nossos testes
+name: Roda todos os nossos testes
 
+on:
+  push:
+    branches:
+      - master
+  pull_request:
 
-  on:
-    push:
-      branches:
-        - master
-      pull_request:
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
 
-  jobs:
-    run-tests:
-      runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
 
-      steps:
-        - name: Check out repository
-          uses: actions/checkout@v3
+      - name: set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '11'
 
-        - name: set up Java
-          uses: actions/setup-java@v3
-          with:
-            distribution: 'temurin'
-            java-version: '11'
+      - name: Set up Maven
+        run: |
+          mvn -version
 
-        - name: Set up Maven
-          run: |
-            mvn -version
-            
-            - name: Build and run tests
-                run: |
-                    mvn -Dtest=teste test
+      - name: Build and run tests
+        run: |
+          mvn -Dtest=teste test
